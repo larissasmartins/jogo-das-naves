@@ -1,0 +1,46 @@
+/* GAME STYLE */
+@font-face {
+    font-family: Titulo;
+    src: url(../fonts/ANODETONOONE.TTF);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Titulo;
+    font-size: 40px;
+    color: #603A03;
+}
+
+body {
+    background-image: url(../images/fundo.jpg);
+    background-size: cover;
+}
+
+/* main container */
+#container {
+    width: 950px;
+    height: auto;
+    margin: 2.5rem auto;
+    position: relative;
+}
+
+#bgGame {
+    width: 950px;
+    height: 630px;
+    background-image: url(../images/fundo_game.jpg);
+    border: #fff solid;
+}
+
+#startGame {
+    background-color: #fff;
+    width: 420px;
+    height: auto;
+    margin: 150px auto 0 auto;
+    padding: 1rem;
+    text-align: center;
+}

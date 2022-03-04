@@ -14,6 +14,7 @@ h1 {
     font-family: Titulo;
     font-size: 40px;
     color: #603A03;
+    padding: .5rem;
 }
 
 body {
@@ -36,11 +37,58 @@ body {
     border: #fff solid;
 }
 
+/* start game message */
 #startGame {
     background-color: #fff;
-    width: 420px;
+    width: 450px;
     height: auto;
     margin: 150px auto 0 auto;
     padding: 1rem;
     text-align: center;
+    border-radius: 15px;
+}
+
+p {
+    margin: 5px;
+}
+
+p:hover {
+    cursor: pointer;
+}
+
+/* images after starting the game */
+#jogador {
+    width: 255px;
+    height: 65px;
+    position: absolute;
+    left: 8px;
+    top: 179px;
+    background-image: url(../images/apache.png);
+}
+
+#inimigo1 {
+    width: 255px;
+    height: 65px;
+    position: absolute;
+    left: 689px;
+    top: 253px;
+    background-image: url(../images/inimigo1.png);    
+}
+
+#inimigo2 {
+    width: 165px;
+    height: 70px;
+    position: absolute;
+    left: 775px;
+    top: 447px;
+    background-image: url(../images/inimigo2.png);   
+}
+
+#amigo {
+    width: 45px;
+    height: 52px;
+    position: absolute;
+    left: 10px;
+    top: 465px;
+    background-image: url(../images/amigo.png);
 }

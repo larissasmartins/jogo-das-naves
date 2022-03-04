@@ -57,7 +57,7 @@ p:hover {
 }
 
 /* images after starting the game */
-#jogador {
+#player {
     width: 255px;
     height: 65px;
     position: absolute;
@@ -66,7 +66,7 @@ p:hover {
     background-image: url(../images/apache.png);
 }
 
-#inimigo1 {
+#enemy1 {
     width: 255px;
     height: 65px;
     position: absolute;
@@ -75,7 +75,7 @@ p:hover {
     background-image: url(../images/inimigo1.png);    
 }
 
-#inimigo2 {
+#enemy2 {
     width: 165px;
     height: 70px;
     position: absolute;
@@ -84,7 +84,7 @@ p:hover {
     background-image: url(../images/inimigo2.png);   
 }
 
-#amigo {
+#friend {
     width: 45px;
     height: 52px;
     position: absolute;

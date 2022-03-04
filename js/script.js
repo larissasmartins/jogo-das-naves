@@ -4,14 +4,14 @@ function start() {
 
     $("#startGame").hide();
 
-    $("#bgGame").append("<div id='jogador' class='anima1'></div>");
-    $("#bgGame").append("<div id='inimigo1' class='anima2'></div>");
-    $("#bgGame").append("<div id='inimigo2'></div>");
-    $("#bgGame").append("<div id='amigo' class='anima3'></div>");
+    $("#bgGame").append("<div id='player' class='anima1'></div>");
+    $("#bgGame").append("<div id='enemy1' class='anima2'></div>");
+    $("#bgGame").append("<div id='enemy2'></div>");
+    $("#bgGame").append("<div id='friend' class='anima3'></div>");
 
     // main var on the game
     var game = {};
-    var key = {
+    var keyGame = {
     W: 87,
     S: 83,
     D: 68
@@ -51,14 +51,22 @@ function start() {
     // player animation moviment
     function moveplayer() {
     
-    if (game.pressed[KEY.W]) {
+    if (game.pressed[keyGame.W]) {
         var TOP = parseInt($("#player").css("top"));
         $("#player").css("top", TOP-10);
+
+            if (TOP <= 0) {
+            $("#player").css("top", TOP+10);
+            }
     }
 
-    if (game.pressed[KEY.S]) {
+    if (game.pressed[keyGame.S]) {
         var TOP = parseInt($("#player").css("top"));
         $("#player").css("top", TOP+10);
+
+            if (TOP >= 434) {
+            $("#player").css("top", TOP-10);
+            }
     }
 
     // shotting function

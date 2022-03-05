@@ -70,7 +70,7 @@
     to {background-position: -512px;}
 }
 
-/* animation man left */
+/* animation man walking left */
 .anima3 {
     background-image: url(../images/amigo.png);
     animation: play2 .9s steps(12) infinite;

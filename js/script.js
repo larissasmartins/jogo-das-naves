@@ -40,6 +40,7 @@ function start() {
     moveplayer();
     moveenemy1();
     moveenemy2();
+    movefriend();
 
     } 
     
@@ -104,6 +105,17 @@ function start() {
 
         if (positionX <= 0) {
             $("#enemy2").css("left", 775);
+        }
+    }
+
+    // move friend function
+    function movefriend() {
+
+    positionX = parseInt($("#friend").css("left"));
+    $("#friend").css("left", positionX+1);
+
+        if (positionX > 906) {
+            $("#friend").css("left", 0);
         }
     }
 

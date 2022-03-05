@@ -11,6 +11,8 @@ function start() {
 
     // main var on the game
     var game = {};
+    var speedEnemy = 5;
+    var positionY = parseInt(Math.random() * 334);
     var keyGame = {
     W: 87,
     S: 83,
@@ -36,6 +38,8 @@ function start() {
 
     movebg();
     moveplayer();
+    moveenemy1();
+    moveenemy2();
 
     } 
     
@@ -70,11 +74,37 @@ function start() {
     }
 
     // shotting function
-    if (game.pressed[KEY.D]) {
+    if (game.pressed[keyGame.D]) {
         
 
     }
         
+    }
+
+    // move enemy1 function
+    function moveenemy1() {
+    
+    positionX = parseInt($("#enemy1").css("left"));
+    $("#enemy1").css("left", positionX-speedEnemy);
+    $("#enemy1").css("top", positionY);
+
+        if (positionX <= 0) {
+            positionY = parseInt(Math.random() * 334);
+            $("#enemy1").css("left", 694);
+            $("#enemy1").css("top", positionY);
+        }
+
+    }
+
+    // move enemy2 function
+    function moveenemy2() {
+
+    positionX = parseInt($("#enemy2").css("left"));
+    $("#enemy2").css("left", positionX-3);
+
+        if (positionX <= 0) {
+            $("#enemy2").css("left", 775);
+        }
     }
 
 } // fim da function start

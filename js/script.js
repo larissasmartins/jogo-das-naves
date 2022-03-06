@@ -10,6 +10,7 @@ function start() {
     $("#bgGame").append("<div id='friend' class='anima3'></div>");
 
     // main var on the game
+    var startShot = true;
     var game = {};
     var speedEnemy = 5;
     var positionY = parseInt(Math.random() * 334);
@@ -74,9 +75,10 @@ function start() {
             }
     }
 
-    // shotting function
+    // call shotting function
     if (game.pressed[keyGame.D]) {
         
+        shotting();
 
     }
         
@@ -119,4 +121,39 @@ function start() {
         }
     }
 
-} // fim da function start
+    // start shotting function 
+    function shotting() {
+    
+    if (startShot == true) {
+
+    startShot = false;
+
+    TOP = parseInt($("#player").css("top"))
+    positionX = parseInt($("#player").css("left"))
+    shotX = positionX + 140;
+    topShot = TOP + 40;
+    $("#bgGame").append("<div id='shotting'></div>");
+    $("#shotting").css("top", topShot);
+    $("#shotting").css("left", shotX);
+
+    var shottingTime = window.setInterval(shottingActive, 30);
+
+    }
+
+        // shotting time on the display function
+        function shottingActive() {
+        positionX = parseInt($("#shotting").css("left"));
+        $("#shotting").css("left", positionX + 15);
+
+            if (positionX > 900) {
+
+            window.clearInterval(shottingTime);
+            shottingTime = null;
+            $("#shotting").remove();
+            startShot = true;
+            }
+        }
+
+    }
+
+} // the end function start

@@ -158,7 +158,7 @@ function start() {
 
     }
 
-    // collision function 
+    // collision functions 
     function crash() {
     var crash1 = ($("#player").collision($("#enemy1")));
     var crash2 = ($("#player").collision($("#enemy2")));
@@ -191,6 +191,69 @@ function start() {
 
     }
 
-    }   
+    // explotion1 function
+    function explotion1(enemy1X,enemy1Y) {
+        $("#bgGame").append("<div id='explotion1'></div");
+        $("#explotion1").css("background-image", "url(images/explosao.png)");
+        var boom = $("#explotion1");
+        boom.css("top", enemy1Y);
+        boom.css("left", enemy1X);
+        boom.animate({width:200, opacity:0}, "slow");
+        
+        var explotionTime = window.setInterval(removeExplotion, 1000);
+        
+            function removeExplotion() {
+                
+                boom.remove();
+                window.clearInterval(explotionTime);
+                explotionTime = null;
+                
+            }
+            
+        }
+
+    }
+
+    // explotion2 function
+    function explotion2(enemy2X,enemy2Y) {
+        $("#bgGame").append("<div id='explotion2'></div");
+        $("#explotion2").css("background-image", "url(images/explosao.png)");
+        var boom2 = $("#explotion2");
+        boom2.css("top", enemy2Y);
+        boom2.css("left", enemy2X);
+        boom2.animate({width:200, opacity:0}, "slow");
+        
+        var explotionTime2 = window.setInterval(removeExplotion2, 1000);
+        
+            function removeExplotion2() {
+                
+                boom2.remove();
+                window.clearInterval(explotionTime2);
+                explotionTime2 = null;
+                
+            }
+            
+        }
+
+    }
+
+    // resposition enemy2 function
+    function repositionEnemy2() {
+
+    var collisionTime4 = window.setInterval(resposition4, 5000);
+
+        function resposition4() {
+        window.clearInterval(collisionTime4);
+        collisionTime4 = null;
+
+            if (endGame == false) {
+            
+            $("#bgGame").append("<div id = enemy2></div>");
+
+            }
+
+        }
+
+    }
 
 } // the end function start

@@ -11,6 +11,7 @@ function start() {
 
     // main var on the game
     var startShot = true;
+    var endGame = false;
     var game = {};
     var speedEnemy = 5;
     var positionY = parseInt(Math.random() * 334);
@@ -42,6 +43,7 @@ function start() {
     moveenemy1();
     moveenemy2();
     movefriend();
+    crash();
 
     } 
     
@@ -155,5 +157,40 @@ function start() {
         }
 
     }
+
+    // collision function 
+    function crash() {
+    var crash1 = ($("#player").collision($("#enemy1")));
+    var crash2 = ($("#player").collision($("#enemy2")));
+    var crash3 = ($("#shotting").collision($("#enemy1")));
+    var crash4 = ($("#shotting").collision($("#enemy2")));
+    var crash5 = ($("#player").collision($("#friend")));
+    var crash6 = ($("#enemy2").collision($("#friend")));
+
+    if (crash1.length > 0) {
+    
+    enemy1X = parseInt($("#enemy1").css("left"));
+    enemy1Y = parseInt($("#enemy1").css("top"));
+    explotion1(enemy1X, enemy1Y);
+
+    positionY = parseInt(Math.random() * 334);
+    $("enemy1").css("left", 694);
+    $("enemy1").css("top", positionY);
+
+        }
+    
+    if (crash2.length > 0) {
+    
+    enemy2X = parseInt($("#enemy2").css("left"));
+    enemy2Y = parseInt($("#enemy2").css("top"));
+    explotion2(enemy2X, enemy2Y);
+
+    $("#enemy2").remove();
+
+    repositionEnemy2();
+
+    }
+
+    }   
 
 } // the end function start

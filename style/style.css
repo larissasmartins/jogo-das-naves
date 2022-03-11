@@ -17,6 +17,14 @@ h1 {
     padding: .5rem;
 }
 
+.clickStart {
+    font-family: Titulo;
+    font-size: 20px;
+    color: #603A03;
+    padding: .2rem;
+    margin-top: 1.5rem;
+}
+
 body {
     background-image: url(../images/fundo.jpg);
     background-size: cover;
@@ -50,6 +58,7 @@ body {
 
 p {
     margin: 5px;
+    font-size: 17px;
 }
 
 p:hover {
@@ -144,10 +153,10 @@ h3 {
 	font-family:Titulo;
 	font-size: 20px;
 	color:#603A03;
-
+    margin-top: 1rem;
 }
 
-#end {
+#endGame {
     background-color: #fff;
     width: 450px;
     height: auto;

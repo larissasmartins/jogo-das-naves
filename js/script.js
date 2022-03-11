@@ -8,10 +8,14 @@ function start() {
     $("#bgGame").append("<div id='enemy1' class='anima2'></div>");
     $("#bgGame").append("<div id='enemy2'></div>");
     $("#bgGame").append("<div id='friend' class='anima3'></div>");
+    $("#bgGame").append("<div id='placar'></div>");
 
     // main var on the game
     var startShot = true;
     var endGame = false;
+    var score = 0;
+    var saved = 0;
+    var lost = 0;    
     var game = {};
     var speedEnemy = 5;
     var positionY = parseInt(Math.random() * 334);
@@ -44,6 +48,7 @@ function start() {
     moveenemy2();
     movefriend();
     crash();
+    scoreboard();
 
     } 
     
@@ -191,20 +196,9 @@ function start() {
 
         }
 
-    if (crash2.length > 0) { // player with enemy2
-    
-        enemy2X = parseInt($("#enemy2").css("left"));
-        enemy2Y = parseInt($("#enemy2").css("top"));
-        explosion2(enemy2X, enemy2Y);
-    
-        $("#enemy2").remove();
-    
-        repositionEnemy2();
-    
-        }
-
     if (crash3.length > 0) { // shot enemy1
     
+        score = score + 100;
         enemy1X = parseInt($("#enemy1").css("left"));
         enemy1Y = parseInt($("#enemy1").css("top"));
         explosion1(enemy1X, enemy1Y)
@@ -220,6 +214,7 @@ function start() {
 
     if (crash4.length > 0) { // shot enemy2
     
+        score = score + 50;
         enemy2X = parseInt($("#enemy2").css("left"));
         enemy2Y = parseInt($("#enemy2").css("top"));
         $("#enemy2").remove();
@@ -232,20 +227,22 @@ function start() {
         }
 
     if (crash5.length > 0) { // crash player with friend
-    
-    repositionFriend();
-    $("#amigo").remove();
+        
+        saved++;
+        repositionFriend();
+        $("#amigo").remove();
 
         }
 
     if (crash6.length > 0) {
     
-        friend2X = parseInt($("#friend").css("left"));
-        friend2Y = parseInt($("#friend").css("top"));
-        explosion2(enemy2X, enemy2Y);
+        lost++;
+        friendX = parseInt($("#friend").css("left"));
+        friendY = parseInt($("#friend").css("top"));
+        explosion3(friendX, friendY);
         $("#friend").remove();
 
-        repositionEnemy2();
+        repositionFriend();
     
         }
     
@@ -297,9 +294,9 @@ function start() {
     }
 
     // reposition friend function
-    function respositionFriend() {
+    function repositionFriend() {
     
-    var friendtime = window.setInterval(resposition6, 6000);
+    var friendTime = window.setInterval(reposition6, 6000);
         
         function reposition6() {
             window.clearInterval(friendTime);
@@ -313,7 +310,7 @@ function start() {
     }
 
     // explosion3 function
-    function explosion3(friend2X,friend2Y) {
+    function explosion3(friendX,friendY) {
         $("#bgGame").append("<div id='explosion3' class='anima4'></div");
         $("#explosion3").css("top", friendY);
         $("#explosion3").css("left", friendX);
@@ -329,8 +326,15 @@ function start() {
             }
             
 
-    }    
+    }
 
+    // scoreboard function
+    function scoreboard() {
+	
+        $("#scoreboard").html("<h2> Pontos: " + score + " Salvos: " + saved + " Perdidos: " + lost + "</h2>");
+        
+    } 
+    
 
     // reposition enemy2 function
     function repositionEnemy2() {

@@ -29,6 +29,18 @@ function start() {
 
     game.pressed = [];
 
+    var shottingSound = document.getElementById("shottingSound");
+    var explosionSound = document.getElementById("explosionSound");
+    var music = document.getElementById("music");
+    var gameoverSound = document.getElementById("gameoverSound");
+    var lostSound = document.getElementById("lostSound");
+    var savedSound = document.getElementById("savedSound");
+
+    // Music looping
+    music.addEventListener("ended", function(){ music.currentTime = 0; music.play(); }, false);
+    music.play();
+
+
     // to verify if the user pressed any key
     $(document).keydown(function(e) {
     game.pressed[e.which] = true;
@@ -136,6 +148,7 @@ function start() {
     
     if (startShot == true) {
 
+    shottingSound.play();    
     startShot = false;
 
     TOP = parseInt($("#player").css("top"))
@@ -201,7 +214,8 @@ function start() {
         }
 
     if (crash3.length > 0) { // shot enemy1
-    
+
+        speedEnemy = speedEnemy + 0.2;
         score = score + 100;
         enemy1X = parseInt($("#enemy1").css("left"));
         enemy1Y = parseInt($("#enemy1").css("top"));
@@ -233,6 +247,7 @@ function start() {
     if (crash5.length > 0) { // crash player with friend
         
         saved++;
+        savedSound.play();
         repositionFriend();
         $("#amigo").remove();
 
@@ -255,6 +270,7 @@ function start() {
 
     // explosion1 function 
     function explosion1(enemy1X,enemy1Y) {
+        explosionSound.play();
         $("#bgGame").append("<div id='explosion1'></div");
         $("#explosion1").css("background-image", "url(images/explosao.png)");
         var boom = $("#explosion1");
@@ -277,6 +293,7 @@ function start() {
 
     // explosion2 function
     function explosion2(enemy2X,enemy2Y) {
+        explosionSound.play();
         $("#bgGame").append("<div id='explosion2'></div");
         $("#explosion2").css("background-image", "url(images/explosao.png)");
         var boom2 = $("#explosion2");
@@ -315,6 +332,7 @@ function start() {
 
     // explosion3 function
     function explosion3(friendX,friendY) {
+        lostSound.play();
         $("#bgGame").append("<div id='explosion3' class='anima4'></div");
         $("#explosion3").css("top", friendY);
         $("#explosion3").css("left", friendX);

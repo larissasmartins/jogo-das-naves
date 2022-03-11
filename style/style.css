@@ -17,6 +17,14 @@ h1 {
     padding: .5rem;
 }
 
+.clickStart {
+    font-family: Titulo;
+    font-size: 20px;
+    color: #603A03;
+    padding: .2rem;
+    margin-top: 1.5rem;
+}
+
 body {
     background-image: url(../images/fundo.jpg);
     background-size: cover;
@@ -50,6 +58,7 @@ body {
 
 p {
     margin: 5px;
+    font-size: 17px;
 }
 
 p:hover {
@@ -138,4 +147,21 @@ h2 {
 	position: absolute;
 	left: 750px;
 	top: 7px;	
+}
+
+h3 {
+	font-family:Titulo;
+	font-size: 20px;
+	color:#603A03;
+    margin-top: 1rem;
+}
+
+#endGame {
+    background-color: #fff;
+    width: 450px;
+    height: auto;
+    margin: 150px auto 0 auto;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
 }

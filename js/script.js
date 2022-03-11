@@ -422,7 +422,14 @@ function start() {
         $("#bgGame").append("<div id='endGame'></div>");
         
         $("#endGame").html("<h1> Game Over </h1><p>Sua pontuação foi: " + score + "</p>" + "<div id='restart' onClick=restartGame()><h3>Jogar Novamente</h3></div>");
-        } 
-    
+    } 
 
 } // the end function start
+
+// restart the game function	
+function restartGame() {
+	gameoverSound.pause();
+	$("#endGame").remove();
+	start();
+	
+} 

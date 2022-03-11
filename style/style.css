@@ -139,3 +139,20 @@ h2 {
 	left: 750px;
 	top: 7px;	
 }
+
+h3 {
+	font-family:Titulo;
+	font-size: 20px;
+	color:#603A03;
+
+}
+
+#end {
+    background-color: #fff;
+    width: 450px;
+    height: auto;
+    margin: 150px auto 0 auto;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
+}

@@ -2,7 +2,7 @@
   Aircrafts Game
 </h1>
 </h3>
-The goal is to develop a game that can be played on browser.
+The goal is to develop a game that can be played on a browser.
 </h3>
   
 <h4 align="center">Technologies that were used on the project:</h4align="center">

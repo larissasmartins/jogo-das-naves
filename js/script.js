@@ -8,14 +8,16 @@ function start() {
     $("#bgGame").append("<div id='enemy1' class='anima2'></div>");
     $("#bgGame").append("<div id='enemy2'></div>");
     $("#bgGame").append("<div id='friend' class='anima3'></div>");
-    $("#bgGame").append("<div id='placar'></div>");
+    $("#bgGame").append("<div id='scoreboard'></div>");
+    $("#bgGame").append("<div id='energy'></div>");
 
     // main var on the game
     var startShot = true;
     var endGame = false;
     var score = 0;
     var saved = 0;
-    var lost = 0;    
+    var lost = 0;
+    var actualEnergy = 3;    
     var game = {};
     var speedEnemy = 5;
     var positionY = parseInt(Math.random() * 334);
@@ -49,6 +51,7 @@ function start() {
     movefriend();
     crash();
     scoreboard();
+    energy();
 
     } 
     
@@ -185,7 +188,8 @@ function start() {
         }
     
     if (crash2.length > 0) { // player with enemy2
-    
+
+    actualEnergy --;
     enemy2X = parseInt($("#enemy2").css("left"));
     enemy2Y = parseInt($("#enemy2").css("top"));
     explosion2(enemy2X, enemy2Y);
@@ -333,7 +337,33 @@ function start() {
 	
         $("#scoreboard").html("<h2> Pontos: " + score + " Salvos: " + saved + " Perdidos: " + lost + "</h2>");
         
-    } 
+    }
+    
+    // energy function
+    function energy() {
+	
+		if (actualEnergy == 3) {
+			
+			$("#energy").css("background-image", "url(images/energia3.png)");
+		}
+	
+		if (actualEnergy == 2) {
+			
+			$("#energy").css("background-image", "url(images/energia2.png)");
+		}
+	
+		if (actualEnergy == 1) {
+			
+			$("#energy").css("background-image", "url(images/energia1.png)");
+		}
+	
+		if (actualEnergy == 0) {
+			
+			$("#energy").css("background-image", "url(images/energia0.png)");
+			
+		}
+	
+	}    
     
 
     // reposition enemy2 function

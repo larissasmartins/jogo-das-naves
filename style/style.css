@@ -100,14 +100,20 @@ p:hover {
     background-image: url(../images/disparo.png);
 }
 
-#explotion1 {
+#explosion1 {
 	width:15px;
 	height:87px;
 	position:absolute;
 }
 
-#explotion2 {
+#explosion2 {
 	width:15px;
 	height:87px;
 	position:absolute;
+}
+
+#explosion3 {
+    width: 44px;
+    height: 51px;
+    position: absolute;
 }
